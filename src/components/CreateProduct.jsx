@@ -146,10 +146,10 @@ const CreateProduct = () => {
             value={description}
             onChange={(e) => handleChange(e)}
           />
-          <div>
+          <div className="mt-5">
             <label htmlFor="image-upload">
               <ImageRoundedIcon fontSize="large" style={{ color: "#5D20D2" }} />
-              Avatar
+              &nbsp; Avatar
             </label>
             <input
               type="file"

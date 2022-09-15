@@ -28,14 +28,25 @@ const ProductDetails = () => {
   }
 
   return (
-    <div>
-      <h2>Product Details Page</h2>
-      <div className="card">
-        <img src={data.avatar} alt="avatar" />
-        <h4>{data.name}</h4>
-        <h5>{`₹ ${data.price}`}</h5>
-        <h5>{data.description}</h5>
-        <h5>{data.developerEmail}</h5>
+    <div className="flex justify-center items-center">
+      <div>
+        <h2 className="font-bold">Product Details Page</h2>
+        <div className="p-6 max-w-lg mx-auto bg-white rounded-xl shadow-lg items-center space-x-4">
+          <img
+            src={data.avatar}
+            alt="avatar"
+            style={{
+              width: "150px",
+              height: "150px",
+              borderRadius: "10px",
+              margin: "auto",
+            }}
+          />
+          <h4 className="font-bold">{data.name}</h4>
+          <h5>{`₹ ${data.price}`}</h5>
+          <h5>{data.description}</h5>
+          <h5>{data.developerEmail}</h5>
+        </div>
       </div>
     </div>
   );

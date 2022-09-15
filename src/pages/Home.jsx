@@ -13,7 +13,7 @@ const Home = () => {
   return (
     <div>
       <section>
-        <h3>Products</h3>
+        <h3 className="font-bold font-sans">Products</h3>
         <Filter input={category} />
       </section>
     </div>

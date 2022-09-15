@@ -10,12 +10,12 @@ const Favorite = () => {
   };
 
   return (
-    <div>
+    <div >
       <h3>Favorite Page</h3>
-      <div className="cartWrapper">
+      <div>
         {products.map((product) => (
           <div key={product._id} className="cartCard">
-            <img src={product.avatar} alt="" />
+            <img src={product.avatar} alt="" style={{width:"150px",height:"150px", borderRadius:"10px"}} />
             <h5>{product.name}</h5>
             <h5>{`₹ ${product.price}`}</h5>
             <button className="btn" onClick={() => handleRemove(product._id)}>
