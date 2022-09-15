@@ -2,8 +2,9 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { add } from "../store/favoriteSlice";
 import { fetchProducts } from "../store/productSlice";
-import { STATUSES } from "../store/productSlice";
+import { STATUSES } from "../constants/constants";
 import { Link } from "react-router-dom";
+import { deleteProduct } from "../store/productSlice";
 
 // avatar
 // :
@@ -33,14 +34,21 @@ import { Link } from "react-router-dom";
 const Products = () => {
   const dispatch = useDispatch();
   const { data: products, status } = useSelector((state) => state.product);
-  console.log(products);
 
   useEffect(() => {
     dispatch(fetchProducts());
   }, []);
 
-  const handleAdd = (product) => {
+  const handleAdd = (product, e) => {
+    e.preventDefault();
+    e.stopPropagation();
     dispatch(add(product));
+  };
+
+  const handleDelete = (product, e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    dispatch(deleteProduct(product));
   };
 
   if (status === STATUSES.LOADING) {
@@ -53,17 +61,23 @@ const Products = () => {
   return (
     <div className="productsWrapper">
       {products.map((product) => (
-        <Link to={`/product/${product._id}`} style={{textDecoration:"none"}}>
+        <Link to={`/product/${product._id}`} style={{ textDecoration: "none" }} key={product._id}>
+          <div className="card">
+            <img src={product.avatar} alt="" />
+            <h4>{product.name}</h4>
+            <h5>{product.price}</h5>
 
-        <div className="card" key={product._id}>
-          <img src={product.avatar} alt="" />
-          <h4>{product.name}</h4>
-          <h5>{product.price}</h5>
-          
-          <button onClick={() => handleAdd(product)} className="btn">
-            Add to favorite
-          </button>
-        </div>
+            <button onClick={(e) => handleAdd(product, e)} className="btn">
+              Add to favorite
+            </button>
+            <br />
+            <button
+              onClick={(e) => handleDelete(product._id, e)}
+              className="btn"
+            >
+              Delete Product
+            </button>
+          </div>
         </Link>
       ))}
     </div>
