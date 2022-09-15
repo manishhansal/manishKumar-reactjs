@@ -5,31 +5,6 @@ import { STATUSES } from "../constants/constants";
 import { Link } from "react-router-dom";
 import { deleteProduct } from "../store/productSlice";
 
-// avatar
-// :
-// "https://images.unsplash.com/photo-1551028719-00167b16eac5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80"
-// category
-// :
-// "Clothing"
-// createdAt
-// :
-// "2022-08-28T00:05:18.048Z"
-// description
-// :
-// "Black Leather Jacket, used the finest leather for making a jacket. single color available."
-// developerEmail
-// :
-// "vishalkr275@gmail.com"
-// name
-// :
-// "Leather Jacket ( Black )"
-// price
-// :
-// 478
-// updatedAt
-// :
-// "2022-08-28T00:05:18.048Z"
-
 const Products = ({ products, status }) => {
   const dispatch = useDispatch();
   const handleAdd = (product, e) => {
