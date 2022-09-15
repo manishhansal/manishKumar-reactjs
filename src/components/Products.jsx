@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { add } from "../store/favoriteSlice";
-import { fetchProducts } from "../store/productSlice";
 import { STATUSES } from "../constants/constants";
 import { Link } from "react-router-dom";
 import { deleteProduct } from "../store/productSlice";
@@ -31,13 +30,15 @@ import { deleteProduct } from "../store/productSlice";
 // :
 // "2022-08-28T00:05:18.048Z"
 
-const Products = () => {
+const Products = ({products,status}) => {
   const dispatch = useDispatch();
-  const { data: products, status } = useSelector((state) => state.product);
+  // const { data: products, status } = useSelector((state) => state.product);
 
-  useEffect(() => {
-    dispatch(fetchProducts());
-  }, []);
+  // console.log("products",products)
+
+  // useEffect(() => {
+  //   dispatch(fetchProducts());
+  // }, []);
 
   const handleAdd = (product, e) => {
     e.preventDefault();
@@ -65,7 +66,7 @@ const Products = () => {
           <div className="card">
             <img src={product.avatar} alt="" />
             <h4>{product.name}</h4>
-            <h5>{product.price}</h5>
+            <h5>{`₹ ${product.price}`}</h5>
 
             <button onClick={(e) => handleAdd(product, e)} className="btn">
               Add to favorite

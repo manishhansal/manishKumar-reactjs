@@ -17,7 +17,7 @@ const Favorite = () => {
           <div key={product._id} className="cartCard">
             <img src={product.avatar} alt="" />
             <h5>{product.name}</h5>
-            <h5>{product.price}</h5>
+            <h5>{`₹ ${product.price}`}</h5>
             <button className="btn" onClick={() => handleRemove(product._id)}>
               Remove
             </button>

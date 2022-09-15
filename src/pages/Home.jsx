@@ -1,13 +1,20 @@
-import React from "react";
-import Products from "../components/Products";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import Filter from "../components/Filter";
+import { fetchCategory } from "../store/categorySlice";
 
 const Home = () => {
+  const dispatch = useDispatch();
+  const { data: category, status } = useSelector((state) => state.category);
+  
+  useEffect(() => {
+    dispatch(fetchCategory());
+  }, []);
   return (
     <div>
-      {/* <h2 className="heading">Welcome to the Redux toolkit store</h2> */}
       <section>
         <h3>Products</h3>
-        <Products />
+        <Filter input={category} />
       </section>
     </div>
   );

@@ -26,11 +26,11 @@ const productSlice = createSlice({
       })
       .addCase(fetchProducts.rejected, (state, action) => {
         state.status = STATUSES.ERROR;
-      })
+      });
   },
 });
 
-export const { deleteProduct } = productSlice.actions;
+export const { deleteProduct} = productSlice.actions;
 export default productSlice.reducer;
 
 // Fetch all products
