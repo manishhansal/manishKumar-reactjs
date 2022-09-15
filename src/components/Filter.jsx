@@ -6,6 +6,7 @@ import Select from "@mui/material/Select";
 import Products from "./Products";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "../store/productSlice";
+import CreateProduct from "./CreateProduct";
 
 const Filter = ({ input }) => {
   const [filter, setFilter] = useState("");
@@ -50,7 +51,10 @@ const Filter = ({ input }) => {
           ))}
         </Select>
       </FormControl>
-      <Products products={filterData} status={status} />
+      <div>
+        <CreateProduct />
+        <Products products={filterData} status={status} />
+      </div>
     </div>
   );
 };

@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
+import { useDispatch } from "react-redux";
 import { add } from "../store/favoriteSlice";
 import { STATUSES } from "../constants/constants";
 import { Link } from "react-router-dom";
@@ -32,14 +32,6 @@ import { deleteProduct } from "../store/productSlice";
 
 const Products = ({products,status}) => {
   const dispatch = useDispatch();
-  // const { data: products, status } = useSelector((state) => state.product);
-
-  // console.log("products",products)
-
-  // useEffect(() => {
-  //   dispatch(fetchProducts());
-  // }, []);
-
   const handleAdd = (product, e) => {
     e.preventDefault();
     e.stopPropagation();
